@@ -1,0 +1,46 @@
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@PREFIX wv: <http://vocab.org/waiver/terms/norms>  
+@prefix sd: <http://www.w3.org/ns/sparql-service-description#> .
+
+@prefix : <#> .
+
+:Graafwerkzaamheden
+    skos:prefLabel "Graafwerkzaamheden" ;
+    skos:narrower :Rioleringsgraafwerkzaamheden ;
+    rdfs:seeAlso <http://www.wikidata.org/entity/Q1852785> ;
+    .
+
+:Rioleringsgraafwerkzaamheden
+    skos:prefLabel "Graafwerkzaamheden riolering" ;
+    .
+
+:Example1 a void:Dataset ;
+    dcterms:title "Rioleringswerkzaamheden 2023" ;
+    dcterms:description "" ;
+    dcterms:creator :Creator1 ;
+    dcterms:publisher :Medewerker1 ;
+    dcterms:created	"2020-10-01T10:24:00"^^xsd:date ;
+    dcterms:issued "2020-10-01T10:27:00"^^xsd:date ;
+    dcterms:license <http://www.opendatacommons.org/licenses/odbl/> ;
+    dcterms:subject :Rioleringsgraafwerkzaamheden ;
+    void:feature <http://www.w3.org/ns/formats/Turtle> ;
+    void:sparqlEndpoint <http://sido-fair.nl/sparql> ;
+    void:dataDump <http://data.waterschap1.nl/12931-149012014412-FA91.nq> ;
+    .
+
+:Creator1 a foaf:Organization ;
+    rdfs:label "Waterschap 1" ;
+    foaf:homepage <http://waterschap1.nl> ;
+    .
+
+:Medewerker1 a foaf:Person ;
+    rdfs:label "Anna van Aa" ;
+    foaf:mbox <mailto:anna.van.aa@waterschap1.nl> ;
+    .
+
