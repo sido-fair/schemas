@@ -1,0 +1,27 @@
+# (Meta)data use vocabularies that follow FAIR principles
+
+PREFIX sh: <http://www.w3.org/ns/shacl#>
+PREFIX void: <http://rdfs.org/ns/void#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX wv: <http://vocab.org/waiver/terms/norms>
+PREFIX sd: <http://www.w3.org/ns/sparql-service-description#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX schema: <http://schema.org/>
+
+PREFIX sido: <https://w3id.org/def/sido-fair#>
+
+sido:FAIR_I2_Shape a sh:NodeShape ;
+    sh:targetClass void:Dataset ;
+    sh:message "I2: (Meta)data gebruiken vocabulaires die de FAIR-principes volgen"@nl ;
+    sh:message "I2: (Meta)data use vocabularies that follow FAIR principles"@en ;
+    # het controleren welke vocabularia er daadwerkelijk in de data is gebruikt, is lastig
+    sh:property [
+        sh:path void:vocabulary ;
+        sh:minCount 1 ;
+    ]
+    .

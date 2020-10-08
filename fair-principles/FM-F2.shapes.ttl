@@ -1,0 +1,55 @@
+# Data are described with rich metadata
+
+PREFIX sh: <http://www.w3.org/ns/shacl#>
+PREFIX void: <http://rdfs.org/ns/void#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX wv: <http://vocab.org/waiver/terms/norms>
+PREFIX sd: <http://www.w3.org/ns/sparql-service-description#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX schema: <http://schema.org/>
+
+PREFIX sido: <https://w3id.org/def/sido-fair#>
+
+sido:FAIR_F2_Shape a sh:NodeShape ;
+    sh:targetClass void:Dataset ;
+    sh:message "F2: Data is rijkelijk voorzien van metadata"@nl ;
+    sh:message "F2: Data are described with rich metadata"@en ;
+    sh:property [
+        sh:path void:triples ;
+        sh:minCount 1 ;
+    ] ;
+    sh:property [
+        sh:path dcterms:creator ;
+        sh:class foaf:Organization ;
+        sh:minCount 1 ;
+    ] ;
+    sh:property [
+        sh:path dcterms:publisher ;
+        sh:class foaf:Person ;
+        sh:minCount 1 ;
+    ] ;
+    sh:property [
+        sh:path dcterms:created ;
+        sh:minCount 1 ;
+    ]
+    sh:property [
+        sh:path dcterms:issued ;
+        sh:minCount 1 ;
+    ]
+    .
+
+sid:FAIR_F2_Shape_publisher a sh:NodeShape ;
+    sh:targetClass foaf:Person ;
+    sh:message "dcterms:publisher is geen foaf:Person met e-mailadres (F2)"@nl ;
+    sh:message "dcterms:publisher is no foaf:Person with e-mail address (F2)"@en ;
+    sh:property [
+        sh:path foaf:mbox ;
+        sh:minCount 1 ;
+    ]
+    .
+

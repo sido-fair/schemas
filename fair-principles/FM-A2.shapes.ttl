@@ -1,0 +1,29 @@
+# Metadata are accessible, even when the data are no longer available
+
+# FAIRMetrics: zoekt naar een /persistencePolicy/-key
+# <http://www.w3.org/2000/10/swap/pim/doc#persistencePolicy>
+
+PREFIX sh: <http://www.w3.org/ns/shacl#>
+PREFIX void: <http://rdfs.org/ns/void#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX wv: <http://vocab.org/waiver/terms/norms>
+PREFIX sd: <http://www.w3.org/ns/sparql-service-description#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX schema: <http://schema.org/>
+
+PREFIX sido: <https://w3id.org/def/sido-fair#>
+
+sido:FAIR_A2_Shape sido:FAIR_R11_Shape a sh:NodeShape ;
+    sh:targetClass void:Dataset ;
+    sh:message "A2: Metadata blijft toegankelijk, ook als de data niet langer beschikbaar is"@nl ;
+    sh:message "A2: Metadata are accessible, even when the data are no longer available"@en ;
+    sh:property [
+        sh:path <http://www.w3.org/2000/10/swap/pim/doc#persistencePolicy> ;
+        sh:minCount 1 ;
+    ]
+    .
