@@ -41,15 +41,8 @@ sido:FAIR_F2_Shape a sh:NodeShape ;
         sh:path dcterms:issued ;
         sh:minCount 1 ;
     ]
-    .
-
-sid:FAIR_F2_Shape_publisher a sh:NodeShape ;
-    sh:targetClass foaf:Person ;
-    sh:message "dcterms:publisher is geen foaf:Person met e-mailadres (F2)"@nl ;
-    sh:message "dcterms:publisher is no foaf:Person with e-mail address (F2)"@en ;
     sh:property [
-        sh:path foaf:mbox ;
-        sh:minCount 1 ;
+        sh:path ( dcterms:publisher foaf:mbox ) ;
+        sh:minCount 1;
     ]
     .
-
