@@ -1,0 +1,28 @@
+# Metadata clearly and explicitly include the identifier of the data it describes
+
+PREFIX sh: <http://www.w3.org/ns/shacl#>
+PREFIX void: <http://rdfs.org/ns/void#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX wv: <http://vocab.org/waiver/terms/norms>
+PREFIX sd: <http://www.w3.org/ns/sparql-service-description#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX schema: <http://schema.org/>
+
+PREFIX sido: <https://w3id.org/def/sido-fair#>
+
+sido:FAIR_F3_Shape a sh:NodeShape ;
+    sh:targetClass void:Dataset ;
+    sh:message "F3: Metadata benoemt expliciet de identifier van de data die het beschrijft"@nl ;
+    sh:message "F3: Metadata clearly and explicitly include the identifier of the data it describes"@en ;
+    sh:property [
+        sh:path schema:identifier ;
+        sh:minCount 1 ;
+        sh:nodeKind sh:IRI ;
+        sh:pattern "^urn:uuid:[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}$" ;
+    ]
+    .
