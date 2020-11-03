@@ -1,6 +1,6 @@
-# Schema’s voor Samenwerking in de Ondergrond (SidO)
+# Schemes for SidO
 
-Op basis van FAIR worden gegevens over graafplanningen gedeeld met deelnemende partijen in de SidO-community.
+Op basis van FAIR worden gegevens gedeeld met deelnemende partijen in de SidO-community.
 
 1. FAIR is de basis van de gegevensdeling, door metadata en data van elkaar te scheiden kan relevante informatie veilig gedeeld worden.
 1. FAIR heeft ook een organisatorische component, deelname aan de SidO-community is actieve deelname.
