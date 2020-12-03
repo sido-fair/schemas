@@ -1,0 +1,111 @@
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX foaf:    <http://xmlns.com/foaf/0.1/>
+PREFIX geo:     <http://www.opengis.net/ont/geosparql#>
+PREFIX imkl:    <https://w3id.org/sido-fair/imkl/>
+PREFIX nta8035: <https://w3id.org/def/basicsemantics-owl#>
+PREFIX owl:     <http://www.w3.org/2002/07/owl#>
+PREFIX rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs:    <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX schema:  <http://schema.org/>
+PREFIX sh:      <http://www.w3.org/ns/shacl#>
+PREFIX sido:    <https://w3id.org/sido-fair/>
+PREFIX skos:    <http://www.w3.org/2004/02/skos/core#>
+PREFIX unit:    <http://qudt.org/vocab/unit/>
+PREFIX void:    <http://rdfs.org/ns/void#>
+PREFIX xsd:     <http://www.w3.org/2001/XMLSchema#>
+
+sido:LeveringsmetadataShape
+    a sh:NodeShape ;
+    sh:targetClass void:Dataset ;
+
+    sh:property [
+        sh:message "F3 Identifier van de dataset"@nl ;
+        sh:path schema:identifier ;
+        sh:maxCount 1 ;
+        sh:minCount 1 ;
+        sh:nodeKind sh:IRI ;
+    ] ;
+
+    sh:property [
+        sh:message "F2 Wanneer gemaakt"@nl ;
+        sh:path dct:created ;
+        sh:maxCount 1 ;
+        sh:minCount 1 ;
+        sh:datatype xsd:Date ;
+    ] ;
+
+    sh:property [
+        sh:message "F2 Wanneer gepubliceerd"@nl ;
+        sh:path dct:issued ;
+        sh:maxCount 1 ;
+        sh:minCount 1 ;
+        sh:datatype xsd:Date ;
+    ] ;
+
+    sh:property [
+        sh:message "A2 Hoe worden data en metadata behouden"@nl ;
+        sh:path pim:persistencePolicy ;
+        sh:maxCount 1 ;
+        sh:minCount 1 ;
+        sh:datatype xsd:langString ;
+        sh:languageIn ( "nl" ) ;
+    ] ;
+
+    sh:property [
+        sh:message "A1.2 Hoe toegang te verkrijgen is bekend"@nl ;
+        sh:path dct:accessRights ;
+        sh:maxCount 1 ;
+        sh:minCount 1 ;
+        sh:datatype xsd:langString ;
+        sh:languageIn ( "nl" ) ;
+    ] ;
+
+    sh:property [
+        sh:message "R1.1 De gebruiksvoorwaarden van de dataset is bekend"@nl ;
+        sh:path dct:license ;
+        sh:maxCount 1 ;
+        sh:minCount 1 ;
+        sh:nodeKind sh:IRIOrLiteral ;
+    ] ;
+
+    sh:property [
+        sh:message "F2 De leverancier is bekend"@nl ;
+        sh:path dct:publisher ;
+        sh:maxCount 1 ;
+        sh:minCount 1 ;
+        sh:class foaf:Organization ;
+        sh:nodeKind sh:BlankNodeOrIRI ;
+    ] ;
+
+    sh:property [
+        sh:message "F2 De leverancier is contacteerbaar"@nl ;
+        sh:path ( dcterms:publisher foaf:mbox ) ;
+        sh:maxCount 1 ;
+        sh:minCount 1 ;
+        sh:nodeKind sh:IRI ;
+    ] ;
+
+    sh:property [
+        sh:message "R1.2 De herkomst is bekend"@nl ;
+        sh:path dct:sourceOrganization ;
+        sh:maxCount 1 ;
+        sh:minCount 1 ;
+        sh:nodeKind sh:BlankNodeOrLiteral ;
+        sh:class foaf:Organization ;
+    ] ;
+
+    sh:property [
+        sh:message "I2 De dataset gebruikt externe vocabularia"@nl ;
+        sh:or ( 
+            [
+                sh:path void:vocabulary ;
+            ]
+            [
+                sh:path owl:imports ;
+            ]
+        ) ;
+        sh:maxCount 1 ;
+        sh:minCount 1 ;
+        sh:nodeKind sh:IRI ;
+    ] 
+.
